@@ -3,7 +3,7 @@ import apisauce from 'apisauce'
 import { Platform } from 'react-native'
 // export const BASE = ''                               // staging
 // export const BASE = 'prod'                           // prod
-export const BASE = '';     // local
+export const BASE = 'https://staging.paypi.co.za/';     // local
 import * as data from '../../package'
 
 // our "constructor"

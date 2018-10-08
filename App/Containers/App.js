@@ -8,11 +8,9 @@
 
 import React from 'react'
 import { Provider } from 'react-redux'
-// import RootContainer from './RootContainer'
 import createStore from '../Redux/CreateStore'
 import { PersistGate } from 'redux-persist/es/integration/react'
 import {ActivityIndicator, View} from 'react-native'
-// import ReduxNavigation from "../Navigation/ReduxNavigation";
 const {persistor, store, AppWithNavigationState} = createStore;
 
 const onBeforeLift = () => {

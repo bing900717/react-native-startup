@@ -3,49 +3,35 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation'
 // screens identified by the router
 import Login from '../Containers/Login'
 import Home from '../Containers/Home'
-import {createNavigationReducer} from "react-navigation-redux-helpers";
+import NavigationDrawer from '../Navigation/NavigationDrawer'
 
 
-// const Startup = createStackNavigator(
-//     {
-//         Startup: { screen: StartupScreen }
-//     },
-//     {
-//         initialRouteName: 'Startup',
-//         headerMode: 'none'
-//     }
-// );
-
-// const Setup = createStackNavigator(
-//     {
-//         SetupScreen: { screen: SetupScreen }
-//     },
-//     {
-//         initialRouteName: 'SetupScreen',
-//         headerMode: 'none'
-//     }
-// );
-
-const AuthenticationStack = createStackNavigator(
+const LoginSignup = createStackNavigator(
     {
         LoginScreen: Login,
-        HomeScreen: Home
-
     },
     {
         initialRouteName: 'LoginScreen',
     }
 );
 
+const AuthenticationStack = createStackNavigator(
+    {
+        HomeScreen: Home
+    },
+    {
+        initialRouteName: 'HomeScreen',
+    }
+);
 
-
-
-// const AppNavigation = createSwitchNavigator(
-//     {
-//         Login: AuthenticationStack
-//     },
-//     {
-//         initialRouteName: 'Login'
-//     }
-// );
-export default AuthenticationStack
+const AppNavigation = createSwitchNavigator(
+    {
+        Auth: AuthenticationStack,
+        Login: LoginSignup,
+        NavigationDrawer: NavigationDrawer
+    },
+    {
+        initialRouteName: 'NavigationDrawer'
+    }
+);
+export default AppNavigation

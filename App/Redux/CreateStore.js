@@ -11,7 +11,7 @@ import {
     createReactNavigationReduxMiddleware,
     reduxifyNavigator
 } from "react-navigation-redux-helpers";
-import AuthenticationStack from "../Navigation/AppNavigation";
+import AppNavigation from "../Navigation/AppNavigation";
 import { connect } from 'react-redux';
 import rootSaga from '../Sagas/'
 
@@ -29,7 +29,7 @@ middleware.push(sagaMiddleware);
 
 /* ------------- Redux + react-navigation ------------- */
 
-const appReducer = reducers(createNavigationReducer(AuthenticationStack));
+const appReducer = reducers(createNavigationReducer(AppNavigation));
 
 const navMiddleware = createReactNavigationReduxMiddleware(
     "root",
@@ -40,7 +40,7 @@ middleware.push(navMiddleware);
 
 /* ------------- Add Router ------------- */
 
-const App = reduxifyNavigator(AuthenticationStack, "root");
+const App = reduxifyNavigator(AppNavigation, "root");
 const mapStateToProps = (state) => ({
     state: state.nav,
 });
